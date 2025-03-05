@@ -31,26 +31,25 @@ class TaskCard extends StatelessWidget {
         child: Stack(
           children: [
             ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
+              borderRadius: const BorderRadius.all(
+                 Radius.circular(10),
               ),
               child: Image.asset(
                 image,
                 width: double.infinity,
-                height: 120,
+                height: MediaQuery.of(context).size.height * 0.25,
                 fit: BoxFit.cover,
               ),
             ),
             Positioned(
-              bottom: 0, // Ensures the text is at the bottom
+              bottom: 0, 
               left: 0,
               right: 0,
               child: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   color: Colors.white
-                      .withOpacity(0.75), // Semi-transparent background
+                      .withOpacity(0.75), 
                   borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(10),
                     bottomRight: Radius.circular(10),
@@ -62,20 +61,20 @@ class TaskCard extends StatelessWidget {
                     Text(
                       title,
                       style: const TextStyle(
-                        fontFamily: 'RobotoMono', // Correct way to specify font
+                        fontFamily: 'RobotoMono', 
                         fontWeight: FontWeight
-                            .w700, // Use FontWeight.w700 instead of 700
-                        fontSize: 15, // No need for 'px'
-                        height: 16 / 15, // Equivalent to line-height
-                        letterSpacing: 0, // No need for 'px'
-                        color: Colors.black, // Ensure text is visible
+                            .w700, 
+                        fontSize: 15, 
+                        height: 16 / 15, 
+                        letterSpacing: 0,
+                        color: Colors.black, 
                       ),
                     ),
                     const SizedBox(width: 5),
                     Text(
                       reward,
                       style: const TextStyle(
-                        fontFamily: 'RobotoMono', // Correct way to specify font
+                        fontFamily: 'RobotoMono',
                         fontWeight: FontWeight.w700,
                         fontSize: 15,
                         height: 16 / 15,

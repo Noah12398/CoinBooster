@@ -26,10 +26,15 @@ class HomeScreen extends StatelessWidget {
 
   void _onTabTapped(BuildContext context, int index) {
     if (index == 1) {
-      // Navigate to the RewardingLevelsScreen
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) =>  RewardingLevelsScreen()),
+      );
+    }
+    if (index == 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) =>  HomeScreen()),
       );
     }
   }
@@ -54,7 +59,6 @@ class HomeScreen extends StatelessWidget {
               DailyRewardScreen(),
               const SizedBox(height: 20),
 
-              // Task Section
               const Center(
                 child: Text(
                   "Do Tasks, Earn Reward",
@@ -86,13 +90,15 @@ class HomeScreen extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              // Task Cards
               TaskCard(
                 image: "assets/Task1.png",
                 title: "Play Game",
                 reward: "\$10",
                 link: null,
               ),
+              SizedBox(
+              height: MediaQuery.of(context).size.height * 0.1,
+            ),
               TaskCard(
                 image: "assets/Task2.png",
                 title: "Read News",

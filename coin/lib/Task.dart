@@ -1,3 +1,5 @@
+import 'package:coin/Homescreen.dart';
+import 'package:coin/RewardingLevels.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,6 +25,20 @@ class TaskScreen extends StatelessWidget {
     "assets/Article5.png",
     "assets/Article6.png",
   ];
+  void _onTabTapped(BuildContext context, int index) {
+    if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => RewardingLevelsScreen()),
+      );
+    }
+    if (index == 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +51,7 @@ class TaskScreen extends StatelessWidget {
         children: [
           Card(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5), // Less rounded corners
+              borderRadius: BorderRadius.circular(5), 
             ),
             elevation: 3,
             child: Padding(
@@ -43,32 +59,37 @@ class TaskScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.black,
-                    radius: 20,
-                    child: const Icon(Icons.close, color: Colors.white),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: CircleAvatar(
+                      backgroundColor: Colors.black,
+                      radius: 20,
+                      child: const Icon(Icons.close, color: Colors.white),
+                    ),
                   ),
                   const Text(
                     "10.00",
                     style: TextStyle(
                       color: Colors.black,
-                      fontFamily: 'Roboto', // Font family
-                      fontWeight: FontWeight.w500, // Medium weight
-                      fontSize: 15, // Font size in logical pixels
-                      height: 1.1, // Line height (16px / 15px)
-                      letterSpacing: 0, // No extra spacing
+                      fontFamily: 'Roboto', 
+                      fontWeight: FontWeight.w500, 
+                      fontSize: 15, 
+                      height: 1.1, 
+                      letterSpacing: 0, 
                     ),
                   ),
                   ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white, // Button color
-                      foregroundColor: Colors.black, // Text color
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.black, 
                       side: const BorderSide(
-                          color: Colors.black, width: 1), // Black border
+                          color: Colors.black, width: 1), 
                       shape: RoundedRectangleBorder(
                         borderRadius:
-                            BorderRadius.circular(5), // Less rounded corners
+                            BorderRadius.circular(5), 
                       ),
                     ),
                     child: const Text(
@@ -101,6 +122,7 @@ class TaskScreen extends StatelessWidget {
         backgroundColor: Colors.orange,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white70,
+        onTap: (index) => _onTabTapped(context, index),
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.layers), label: ""),
@@ -152,7 +174,6 @@ class TaskScreen extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Left: Main Article
           Expanded(
             flex: 3,
             child: Card(
@@ -166,7 +187,7 @@ class TaskScreen extends StatelessWidget {
                       topRight: Radius.circular(0),
                     ),
                     child: Image.asset(
-                      imagePath, // Fixed image path
+                      imagePath, 
                       width: double.infinity,
                       height: 200,
                       fit: BoxFit.cover,
@@ -207,7 +228,6 @@ class TaskScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 10),
-          // Right: Sidebar Thumbnails
           Expanded(
             flex: 1,
             child: Column(

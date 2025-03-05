@@ -25,11 +25,11 @@ class CustomUI extends StatelessWidget {
       Text(
         text,
         style: const TextStyle(
-          fontFamily: 'RobotoMono', // Correct way to specify font
-          fontWeight: FontWeight.w700, // Use FontWeight.w700 instead of 700
-          fontSize: 14, // No need for 'px'
-          height: 16 / 14, // Equivalent to line-height
-          letterSpacing: 0, // No need for 'px'
+          fontFamily: 'RobotoMono',
+          fontWeight: FontWeight.w700,
+          fontSize: 14, 
+          height: 16 / 14, 
+          letterSpacing: 0, 
         ),
       ),
     ]);

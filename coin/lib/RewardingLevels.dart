@@ -1,3 +1,4 @@
+import 'package:coin/Homescreen.dart';
 import 'package:flutter/material.dart';
 
 class RewardingLevelsScreen extends StatelessWidget {
@@ -6,6 +7,20 @@ class RewardingLevelsScreen extends StatelessWidget {
     LevelData(level: "Level 02", minWithdrawal: 100, earnings: 0),
     LevelData(level: "Level 03", minWithdrawal: 150, earnings: 0),
   ];
+  void _onTabTapped(BuildContext context, int index) {
+    if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => RewardingLevelsScreen()),
+      );
+    }
+    if (index == 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +37,7 @@ class RewardingLevelsScreen extends StatelessWidget {
                 icon: Icon(
                   Icons.chevron_left,
                   size: 30,
-                  color: Colors.orange, // Adjust the color
+                  color: Colors.orange, 
                 ),
                 onPressed: () {
                   Navigator.pop(context);
@@ -42,7 +57,7 @@ class RewardingLevelsScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              SizedBox(width: 48), // Placeholder for balancing alignment
+              SizedBox(width: 48), 
             ],
           ),
           Expanded(
@@ -60,6 +75,7 @@ class RewardingLevelsScreen extends StatelessWidget {
         backgroundColor: Colors.orange,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white,
+        onTap: (index) => _onTabTapped(context, index),
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.layers), label: ""),
@@ -84,13 +100,13 @@ class RewardCard extends StatelessWidget {
         double textPosition = (constraints.maxWidth * progress) - 15;
 
         return Stack(
-          clipBehavior: Clip.none, // Allows overflow of child widgets
+          clipBehavior: Clip.none, 
           children: [
             Card(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12)),
               elevation: 5,
-              margin: EdgeInsets.only(bottom: 40), // Space for overlay effect
+              margin: EdgeInsets.only(bottom: 40), 
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -113,17 +129,16 @@ class RewardCard extends StatelessWidget {
                           letterSpacing: 0.0,
                         )),
                   ),
-                  SizedBox(height: 60), // Space for overlay card
+                  SizedBox(height: 60), 
                 ],
               ),
             ),
 
-            // Inner card overlapping the outer card
             Positioned(
-              left: -4, // Adjust position as needed
+              left: -4,
               right: -4,
               top:
-                  25, // Moves the inner card upward, overlapping the outer card
+                  25, 
               child: Card(
                 elevation: 8,
                 shape: RoundedRectangleBorder(
@@ -179,16 +194,16 @@ class RewardCard extends StatelessWidget {
                           ),
                           Positioned(
                             left:
-                                textPosition / 2 - 15, // Dynamically calculated
+                                textPosition / 2 - 15, 
                             top: 2,
                             child: Text(
-                                "${(progress * 100).toInt()}%", // Convert progress to percentage
+                                "${(progress * 100).toInt()}%", 
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontFamily: 'RobotoMono',
                                   fontWeight: FontWeight.w700,
                                   fontSize: 12,
-                                  height: 16 / 12, // Equivalent to line-height
+                                  height: 16 / 12, 
                                   letterSpacing: 0,
                                 )),
                           ),
@@ -198,6 +213,9 @@ class RewardCard extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.25,
             ),
           ],
         );
