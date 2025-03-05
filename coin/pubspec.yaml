@@ -65,6 +65,12 @@ flutter:
     - assets/Level.png
     - assets/Profile.png
     - assets/Wallet.png
+    - assets/Article1.png
+    - assets/Article2.png
+    - assets/Article3.png
+    - assets/Article4.png
+    - assets/Article5.png
+    - assets/Article6.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -83,11 +89,13 @@ flutter:
       fonts:
         - asset: assets/fonts/Roboto-Bold.ttf
           weight: 700
+        - asset: assets/fonts/Roboto-Regular.ttf
+          weight: 400
 
     - family: RobotoMono
       fonts:
         - asset: assets/fonts/RobotoMono-Regular.ttf
-          weight: 700
+          weight: 400
 
   # fonts:
   #   - family: Schyler
